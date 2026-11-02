@@ -1,0 +1,8 @@
+
+{
+  "/api/v1/devices": "/v1_devices",
+  "/api/v1/devices/:id": "/v1_devices/:id",
+  "/api/v2/devices": "/v2_devices",
+  "/api/v2/devices/:id": "/v2_devices/:id"
+}
+  

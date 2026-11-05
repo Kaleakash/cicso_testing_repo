@@ -1,0 +1,17 @@
+
+# Python packaging tools
+pip>=25.0
+setuptools>=75.0
+wheel>=0.45.0
+
+# FastAPI application
+fastapi>=0.115.0
+uvicorn[standard]>=0.34.0
+
+# API testing
+pytest>=8.0.0
+httpx>=0.28.0
+
+# Load testing
+locust>=2.37.0
+gevent>=24.11.0

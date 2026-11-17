@@ -1,0 +1,21 @@
+TestID,TestCase,Module,Priority,Status,DefectID,Severity,ExecutionTimeSec,Notes
+TC01,Verify payment page loads successfully,Payment,High,Pass,,,1.8,Payment page loaded with order summary
+TC02,Successful credit card payment,Card Payment,High,Pass,,,4.2,Sandbox transaction completed successfully
+TC03,Payment with expired card,Card Validation,High,Pass,,,1.5,Expired card was rejected with validation message
+TC04,Payment with invalid CVV,Card Validation,High,Pass,,,1.7,Gateway declined transaction; no charge created
+TC05,Successful UPI payment,UPI,High,Pass,,,5.1,UPI sandbox payment approved
+TC06,UPI payment timeout handling,UPI,High,Fail,DEF-101,Major,30.0,Page showed failure although gateway status was still pending
+TC07,Cancel net banking payment,Net Banking,Medium,Pass,,,2.6,User returned to checkout with cancelled status
+TC08,Apply valid discount coupon,Order Calculation,High,Pass,,,1.4,Discount and payable total calculated correctly
+TC09,Apply expired discount coupon,Order Calculation,Medium,Pass,,,1.2,Expired coupon rejected with clear message
+TC10,Verify payment amount server-side,Security,Critical,Fail,DEF-102,Critical,2.3,Modified client-side amount was not rejected by API
+TC11,Prevent duplicate payment submission,Payment Reliability,Critical,Fail,DEF-103,Critical,8.6,Repeated submit created two payment attempts; charge reconciliation required
+TC12,Verify payment gateway webhook signature,Security,Critical,Pass,,,1.9,Invalid webhook signature was rejected
+TC13,Verify order confirmation after payment,Order Confirmation,High,Pass,,,3.2,Order marked paid and confirmation page displayed
+TC14,Verify payment receipt download,Receipt,Medium,Pass,,,2.1,Receipt downloaded with correct transaction reference
+TC15,Payment page under peak load,Performance,High,Fail,DEF-104,Major,12.4,Response time exceeded agreed 5-second target
+TC16,Access another customer's transaction,Authorization,Critical,Pass,,,1.6,Unauthorized transaction access was denied
+TC17,Verify mobile payment page layout,UI,Medium,Pass,,,2.8,Payment controls displayed correctly on mobile viewport
+TC18,Refresh page after successful payment,Payment Reliability,High,Pass,,,2.0,Refresh did not create a second order or charge
+TC19,Refund successful sandbox transaction,Refund,High,Blocked,,,0.0,Blocked pending availability of refund-enabled sandbox account
+TC20,Verify payment failure message,User Experience,Medium,Pass,,,1.3,Actionable error message displayed without exposing technical details

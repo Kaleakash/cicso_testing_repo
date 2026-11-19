@@ -1,8 +1,9 @@
 Student Assignment: Banking REST API Using FastAPI
-Beginner Level
+
  Hands-on Development
 
 1. Problem Statement
+
 Develop a simple Banking REST API application using Python and FastAPI.
 
 The application should allow customers to create bank accounts, check account details, deposit money, withdraw money, and transfer money between accounts.
@@ -10,7 +11,8 @@ The application should allow customers to create bank accounts, check account de
 The application should expose REST API endpoints that can be tested using Swagger UI or Postman.
 
 For this assignment, use an in-memory Python data structure (dictionary or list) to store account information. Database integration is not required.
-2. Functional Requirements
+
+1. Functional Requirements
 Students must implement the following functionalities.
 Module	Requirement
 Create Account	Create a new bank account
@@ -22,7 +24,7 @@ Check Balance	Display the current account balance
 Transfer Money	Transfer money between two accounts
 Delete Account	Delete an existing bank account
 
-3. API Requirements
+1. API Requirements
 Students should develop the following REST API endpoints.
 HTTP Method	Endpoint	Description
 POST	/accounts	Create a new account
@@ -34,7 +36,7 @@ GET	/accounts/{account_id}/balance	Check account balance
 POST	/accounts/transfer	Transfer money
 DELETE	/accounts/{account_id}	Delete account
 
-4. Account Information Requirements
+1. Account Information Requirements
 Each bank account should contain the following information:
 - Account ID (Unique)
 - Customer Name
@@ -43,7 +45,7 @@ Each bank account should contain the following information:
 - Initial Deposit
 - Current Balance
 - Account Status (Active / Inactive)
-5. Business Validation Requirements
+1. Business Validation Requirements
 Implement the following validations:
 1. Account ID must be unique.
 2. Customer name cannot be empty.
@@ -57,7 +59,7 @@ Implement the following validations:
 10. An account should not be transferred to itself.
 11. Deleted or inactive accounts should not allow financial transactions.
 12. Return meaningful error messages for invalid requests.
-6. Technical Requirements
+13. Technical Requirements
 Students must use the following technologies:
 Technology	Purpose
 Python	Programming language

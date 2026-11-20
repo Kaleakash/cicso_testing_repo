@@ -1,0 +1,23 @@
+Step 1: Update Ubuntu
+sudo apt update
+
+
+Step 2: Install Docker and Docker Compose
+sudo apt install docker.io docker-compose-v2 -y
+
+
+Step 3: Start Docker
+sudo systemctl enable --now docker
+
+
+Step 4: Verify installation
+Check Docker:
+docker --version
+
+
+Check Docker Compose:
+docker compose version
+
+
+Step 5: Test Docker
+sudo docker run hello-world

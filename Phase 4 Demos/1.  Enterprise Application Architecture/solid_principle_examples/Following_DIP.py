@@ -1,3 +1,12 @@
+
+
+# D – Dependency Inversion Principle (DIP)
+# Definition: High-level modules should not depend directly on low-level modules. Both should depend on abstractions.
+
+# In simple words:
+
+# A business class should not be tightly connected to a particular implementation.
+
 from abc import ABC, abstractmethod
 
 

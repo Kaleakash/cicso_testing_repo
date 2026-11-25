@@ -1,3 +1,13 @@
+
+
+# Definition: Software entities should be open for extension but closed for modification.
+
+# In simple words:
+# - Open for extension = We can add new functionality.
+# - Closed for modification = We should avoid changing existing working code.
+
+
+
 from abc import ABC, abstractmethod
 class Payment(ABC):
     @abstractmethod

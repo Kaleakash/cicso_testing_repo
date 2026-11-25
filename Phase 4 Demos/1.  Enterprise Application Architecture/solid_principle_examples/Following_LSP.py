@@ -1,3 +1,12 @@
+
+# L – Liskov Substitution Principle (LSP)
+# Definition: Objects of a child class should be replaceable for objects of the parent class without breaking the expected behavior of the application.
+
+# In simple words:
+
+# If a child class inherits from a parent class, it should properly support the behavior promised by that parent class.
+
+
 class Bird:
     def eat(self):
         print("Bird is eating")

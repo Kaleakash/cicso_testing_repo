@@ -1,3 +1,6 @@
+# Definition: A class should have only one reason to change.
+# In simple words: One class should perform one particular responsibility.
+
 class Employee:
 
     def __init__(self, name, salary):

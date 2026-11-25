@@ -1,3 +1,11 @@
+
+# I – Interface Segregation Principle (ISP)
+# Definition: A class should not be forced to implement methods that it does not use.
+
+# In simple words:
+
+# Instead of creating one large interface with many methods, create smaller interfaces based on responsibilities.
+
 from abc import ABC, abstractmethod
 
 class Printable(ABC):

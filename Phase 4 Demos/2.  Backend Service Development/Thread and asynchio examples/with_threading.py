@@ -13,7 +13,7 @@ def task2():
 
 def task3():
     print("Task 3 Started")
-    time.sleep(5)
+    time.sleep(3)
     print("Task 3 Completed")
 
 

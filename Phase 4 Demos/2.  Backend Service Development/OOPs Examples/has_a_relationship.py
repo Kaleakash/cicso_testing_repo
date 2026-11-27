@@ -2,7 +2,6 @@
 class Engine:
     def __init__(self, horsepower):
         self.horsepower = horsepower
-
 class Car:
     def __init__(self, brand, model, engine):
         self.brand = brand
@@ -16,6 +15,7 @@ class Car:
 engine = Engine(150)
 car = Car("Toyota", "Corolla", engine)
 car.display_info()
+
 # example using composition
 class Battery:
     def __init__(self, capacity):

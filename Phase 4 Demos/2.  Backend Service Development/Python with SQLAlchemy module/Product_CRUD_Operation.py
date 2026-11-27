@@ -11,6 +11,7 @@ class Product(Base):
     name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     price = sqlalchemy.Column(sqlalchemy.Float, nullable=False)
 
+
 # provide us database details like sqlite, postgresql, mysql etc.
 engine = sqlalchemy.create_engine("sqlite:///products.db")
 # create all tables defined by the Base's subclasses
@@ -43,6 +44,7 @@ def get_all_products():
         print(f"Error occurred: {e}")
         return []
 # delete product by id
+# need confirmation after delete success
 def delete_product(product_id):
     try:
         # retrieve the product by id from the database
@@ -60,6 +62,8 @@ def delete_product(product_id):
         return False
     
 # update product by id
+
+# update product by id with confirmation
 def update_product(product_id, name=None, price=None):
     try:
         product = session.query(Product).filter(Product.id == product_id).first()
@@ -77,6 +81,7 @@ def update_product(product_id, name=None, price=None):
         session.rollback()
         print(f"Error occurred: {e}")
         return False
+
 # need logic to take the value through keyboard inside while with switch statement 
 def menu():
     print("1. Add Product")
@@ -103,10 +108,16 @@ def main():
             name = input("Enter new name (leave blank to keep current): ")
             price_input = input("Enter new price (leave blank to keep current): ")
             price = float(price_input) if price_input else None
-            update_product(product_id, name=name if name else None, price=price)
+            if update_product(product_id, name=name if name else None, price=price):
+                print("Product updated successfully.")
+            else:
+                print("Failed to update product.")
         elif choice == "4":
             product_id = int(input("Enter product ID to delete: "))
-            delete_product(product_id)
+            if delete_product(product_id):
+                print("Product deleted successfully.")
+            else:
+                print("Failed to delete product.")
         elif choice == "5": 
             break
         else:

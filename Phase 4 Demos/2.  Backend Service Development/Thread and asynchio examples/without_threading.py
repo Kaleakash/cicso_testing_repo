@@ -2,7 +2,7 @@ import time
 
 def task1():
     print("Task 1 Started")
-    time.sleep(3)
+    time.sleep(3)       # heavy logic performing
     print("Task 1 Completed")
 
 def task2():

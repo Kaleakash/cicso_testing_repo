@@ -11,9 +11,20 @@ class Product(Base):
     name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     price = sqlalchemy.Column(sqlalchemy.Float, nullable=False)
 
+class Order(Base):
+    __tablename__ = "orders"
+    id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)
+    product_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("products.id"), nullable=False)
+    quantity = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
 
 # provide us database details like sqlite, postgresql, mysql etc.
 engine = sqlalchemy.create_engine("sqlite:///products.db")
+@sqlalchemy.event.listens_for(engine, "connect")
+def enable_sqlite_foreign_keys(dbapi_connection, connection_record):
+    cursor = dbapi_connection.cursor()
+    cursor.execute("PRAGMA foreign_keys=ON")
+    cursor.close()
+
 # create all tables defined by the Base's subclasses
 Base.metadata.create_all(engine)
 
@@ -82,13 +93,26 @@ def update_product(product_id, name=None, price=None):
         print(f"Error occurred: {e}")
         return False
 
+# place the order 
+def place_order(product_id, quantity):
+    try:
+        new_order = Order(product_id=product_id, quantity=quantity)
+        session.add(new_order)
+        session.commit()
+        return True
+    except Exception as e:
+        session.rollback()
+        print(f"Error occurred: {e}")
+        return False
+
 # need logic to take the value through keyboard inside while with switch statement 
 def menu():
     print("1. Add Product")
     print("2. View All Products")
     print("3. Update Product")
     print("4. Delete Product")
-    print("5. Exit")
+    print("5. Place Order")
+    print("6. Exit")
     choice = input("Enter your choice: ")
     return choice
 
@@ -118,7 +142,14 @@ def main():
                 print("Product deleted successfully.")
             else:
                 print("Failed to delete product.")
-        elif choice == "5": 
+        elif choice == "5":
+            product_id = int(input("Enter product ID to order: "))
+            quantity = int(input("Enter quantity: "))
+            if place_order(product_id, quantity):
+                print("Order placed successfully.")
+            else:
+                print("Failed to place order.")
+        elif choice == "6": 
             break
         else:
             print("Invalid choice. Please try again.")

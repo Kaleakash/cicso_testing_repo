@@ -39,8 +39,6 @@ def update_product(id, name, price):
     print("Error: Product with this ID does not exist.")
 
 
-
-
 # need code to call all function in do while with switch statement 
 while True:
     print("\n1. View Products")
